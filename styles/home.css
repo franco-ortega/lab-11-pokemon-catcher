@@ -42,6 +42,14 @@ div {
     justify-content: space-evenly;
 }
 
+label > input {
+    display: none;
+}
+
+:checked + img {
+    border: 5px solid blue;
+}
+
 img {
     height: 300px;
     width: 300px;
