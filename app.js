@@ -1,5 +1,5 @@
 import data from './data.js';
-import { BAG, SEEN } from './constants.js';
+import { BAG } from './constants.js';
 
 const roundsPlayed = document.querySelector('.rounds-played')
 const radioButtons = document.querySelectorAll('input')
@@ -13,7 +13,7 @@ for (let i = 0; i < radioButtons.length; i++) {
     const eachButton = radioButtons[i];
 //console.log(eachButton);
 
-//*****BUTTON starts here*****
+//*****BUTTON when user CLICKS starts here*****
     eachButton.addEventListener('change', (e) => {
 
         const userPick = e.target.value;
@@ -34,7 +34,7 @@ for (let i = 0; i < radioButtons.length; i++) {
         itemInBag.captured++;
     }
 
-    capturedPokemon(myPokemonArray, userPick);
+//    capturedPokemon(myPokemonArray, userPick);
 // or myPokemonArray.push(userPick);
 
 ///////////SET LOCAL STORAGE CALL********************************
@@ -42,13 +42,19 @@ for (let i = 0; i < radioButtons.length; i++) {
 
 
     tallyRounds();
-    startRound();
+
+console.log(accumulator);
+
+    if ( accumulator < 10){
+        startRound();
+    }
+
 
     document.getElementById('one').checked = false;
     document.getElementById('two').checked = false;
     document.getElementById('three').checked = false;
 
-console.log(myPokemonArray);
+//console.log(myPokemonArray);
 //console.log('Captured array: ' + myPokemonArray);
 
     });
@@ -64,12 +70,14 @@ let accumulator = 0;
 function tallyRounds() {
 
     accumulator = accumulator + 1;
-console.log(accumulator)
+//console.log(accumulator)
 
     roundsPlayed.textContent = accumulator;
 
     if (accumulator === 10) {
-        alert('Game Complete. Click OK to see results.' + myPokemonArray);
+        roundsPlayed.textContent = accumulator;
+
+        alert('Game Complete. Click OK to see your results.');
         window.location = './results/index.html';
     }
     
@@ -80,6 +88,7 @@ console.log(accumulator)
 
 
 //*****CAPTURED POKEMON function*****
+/*
 export let myPokemonArray = [];
 console.log(myPokemonArray);
 
@@ -87,7 +96,7 @@ function capturedPokemon(array, pokemon) {
     array.push(pokemon);
     return array;
 }
-
+*/
 
 //*****GET RANDOM POKEMON function*****
 function getRandomPokemon(dataArray) {

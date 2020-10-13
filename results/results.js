@@ -4,11 +4,10 @@
 //getFromLocalStorage
 
 //import { getFromLocalStorage } from '../app.js';
-import { BAG, SEEN } from '../constants.js';
+import { BAG } from '../constants.js';
 
 
 const resultsSpan = document.getElementById('results-span');
-const seenSpan = document.getElementById('seen-span');
 const playAgainButton = document.getElementById('play-again-button');
 
 console.log(resultsSpan);
@@ -20,10 +19,6 @@ JSON.parse(item);
 console.log(item);
 resultsSpan.textContent = 'Your Results!' + item;
 
-const encounteredPokemon = localStorage.getItem(SEEN);
-JSON.parse(encounteredPokemon);
-console.log(encounteredPokemon);
-seenSpan.textContent = 'You encountered:' + encounteredPokemon;
 
 //*****PLAY AGAIN button*****
 playAgainButton.addEventListener('click', () => {
