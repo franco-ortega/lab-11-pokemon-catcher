@@ -1,11 +1,4 @@
-//import { myPokemonArray } from '../app.js';
-//import data from '../data.js';
-
-//getFromLocalStorage
-
-//import { getFromLocalStorage } from '../app.js';
 import { BAG } from '../constants.js';
-
 
 const resultsSpan = document.getElementById('results-span');
 const playAgainButton = document.getElementById('play-again-button');
@@ -15,14 +8,29 @@ console.log(playAgainButton);
 
 
 const item = localStorage.getItem(BAG);
-JSON.parse(item);
+//const stringyItem = JSON.parse(item);
 console.log(item);
 resultsSpan.textContent = 'Your Results!' + item;
+
+
+const pokemonCaught = [];
+const pokemonLabels = [];
+
+for (let i = 0; i < item.length; i++) {
+    const bagItem = item[i];
+
+    pokemonCaught.push(bagItem.captured);
+    pokemonLabels.push(bagItem.id);    
+}
+
+console.log(pokemonCaught['id']);
+console.log(pokemonLabels);
 
 
 //*****PLAY AGAIN button*****
 playAgainButton.addEventListener('click', () => {
     console.log('Play Again clicked');
 
+    localStorage.clear();
     window.location = '../index.html';
 })
