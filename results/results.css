@@ -1,3 +1,7 @@
+header {
+    text-align: center;
+}
+
 main {
     text-align: center;
 }
@@ -35,10 +39,26 @@ tbody {
 }
 
 td {
-    padding: 3px;
+    width: 100px;
+    padding: 1px;
     border: 1px solid black;
 }
 
+.box-td {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.name-td {
+    margin: 0px;
+    border: none;
+}
+
+.score-td {
+    font-size: 50px;
+}
 
 tfoot {
     border: 2px solid green;
@@ -58,4 +78,8 @@ tfoot {
     background-color: lightgreen;
     padding-top: 5px;
     border: none;
+}
+
+img {
+    margin: 2px;
 }

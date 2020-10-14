@@ -5,8 +5,6 @@ const playAgainButton = document.getElementById('play-again-button');
 const item = localStorage.getItem(BAG);
 const parsedItem = JSON.parse(item);
 
-
-
 const table = document.querySelector('tbody')
 
 for (let i = 0; i < parsedItem.length; i++) {
@@ -14,34 +12,29 @@ for (let i = 0; i < parsedItem.length; i++) {
 
     const tr = document.createElement('tr')
     const tdPokemon = document.createElement('td')
+    const imgPokemon = document.createElement('img');
+    const tdBox = document.createElement('td');
     const tdCaptured = document.createElement('td')
     const tdEncountered = document.createElement('td')
-    const imgPokemon = document.createElement('img');
-
-/*
-    console.log(tr);
-    console.log(tdPokemon);
-    console.log(tdCaptured);
-    console.log(tdEncountered);
-*/
-console.log(myItem);
-
 
     tdPokemon.textContent = myItem.name;
+    tdPokemon.className = 'name-td';
 
     imgPokemon.src = myItem.url;
     imgPokemon.alt = `${name}`;
-    imgPokemon.style.height = '50px';
-    imgPokemon.style.width = '50px';
+    imgPokemon.style.height = '60px';
+    imgPokemon.style.width = '60px';
 
+    tdBox.className = 'box-td';
+    tdBox.append(tdPokemon, imgPokemon);
 
     tdCaptured.textContent = myItem.captured;
-//console.log(tdCaptured.textContent = myItem.captured);
+    tdCaptured.className = 'score-td';
 
     tdEncountered.textContent = myItem.encountered;
-//console.log(tdCaptured.textContent = myItem.encountered);
+    tdEncountered.className = 'score-td';
 
-    tr.append(imgPokemon, tdPokemon, tdCaptured, tdEncountered);
+    tr.append(tdBox, tdCaptured, tdEncountered)
 
     table.appendChild(tr);
 }
