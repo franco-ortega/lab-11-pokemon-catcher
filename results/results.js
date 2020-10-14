@@ -16,22 +16,32 @@ for (let i = 0; i < parsedItem.length; i++) {
     const tdPokemon = document.createElement('td')
     const tdCaptured = document.createElement('td')
     const tdEncountered = document.createElement('td')
+    const imgPokemon = document.createElement('img');
 
+/*
     console.log(tr);
     console.log(tdPokemon);
     console.log(tdCaptured);
     console.log(tdEncountered);
+*/
+console.log(myItem);
+
 
     tdPokemon.textContent = myItem.name;
-    console.log(tdCaptured.textContent = myItem.name);
+
+    imgPokemon.src = myItem.url;
+    imgPokemon.alt = `${name}`;
+    imgPokemon.style.height = '50px';
+    imgPokemon.style.width = '50px';
+
 
     tdCaptured.textContent = myItem.captured;
-console.log(tdCaptured.textContent = myItem.captured);
+//console.log(tdCaptured.textContent = myItem.captured);
 
     tdEncountered.textContent = myItem.encountered;
-console.log(tdCaptured.textContent = myItem.encountered);
+//console.log(tdCaptured.textContent = myItem.encountered);
 
-    tr.append(tdPokemon, tdCaptured, tdEncountered);
+    tr.append(imgPokemon, tdPokemon, tdCaptured, tdEncountered);
 
     table.appendChild(tr);
 }
@@ -56,7 +66,11 @@ const pokemonEncountered = parsedItem.map((bagItem) => {
     return bagItem.encountered;
 });
 
+const pokemonImage = parsedItem.map((bagItem) => {
+    return bagItem.url_image;
+});
 
+console.log(pokemonImage);
 
 
 

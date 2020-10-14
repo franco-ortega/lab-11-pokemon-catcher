@@ -20,6 +20,7 @@ for (let i = 0; i < radioButtons.length; i++) {
                 pokemon = {
                     id: Number(radio.value),
                     name: newPokemon.pokemon,
+                    url: newPokemon.url_image,
                     encountered: 1,
                     captured: 0,
                 }
