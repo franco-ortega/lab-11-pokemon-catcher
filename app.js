@@ -8,60 +8,54 @@ const images = document.querySelectorAll('label > img');
 //console.log(roundsPlayed, radioButtons, images);
 
 
+//const myBag = getFromLocalStorage(BAG) || [];
+const pokeResults = [];
+
 //*******FOR LOOP starts here********
 for (let i = 0; i < radioButtons.length; i++) {
-    const eachButton = radioButtons[i];
-//console.log(eachButton);
 
 //*****BUTTON when user CLICKS starts here*****
-    eachButton.addEventListener('change', (e) => {
+    radioButtons[i].addEventListener('change', (e) => {
 
-        const userPick = e.target.value;
-        console.log('You clicked it!: ' + userPick)
+        radioButtons.forEach((radio) => {
 
-///////////GET LOCAL STORAGE CALL********************************
-    const myBag = getFromLocalStorage(BAG) || [];
+            let pokemon = findById(pokeResults, Number(radio.value));
+            if (!pokemon) {
+                const newPokemon = findById(data, Number(radio.value));
+                pokemon = {
+                    id: Number(radio.value),
+                    name: newPokemon.pokemon,
+                    encountered: 1,
+                    captured: 0,
+                }
+                pokeResults.push(pokemon);
+            } else {
+                pokemon.encountered++;
+            }   
+        })
 
-    const itemInBag = findById(myBag, userPick);
+        const capturedPokemon = findById(pokeResults, Number(e.target.value));
+        capturedPokemon.captured++;
 
-    if (itemInBag === undefined) {
-        const newItemInBag = {
-            id: userPick,
-            captured: 1
-        };
-        myBag.push(newItemInBag);
-    } else {
-        itemInBag.captured++;
-    }
-
-//    capturedPokemon(myPokemonArray, userPick);
-// or myPokemonArray.push(userPick);
-
-///////////SET LOCAL STORAGE CALL********************************
-    setInLocalStorage('BAG', myBag);
-
-
-    tallyRounds();
+        tallyRounds();
 
 console.log(accumulator);
 
-    if ( accumulator < 10){
-        startRound();
-    }
+        if ( accumulator < 10){
+            startRound();
+        }
 
+        document.getElementById('one').checked = false;
+        document.getElementById('two').checked = false;
+        document.getElementById('three').checked = false;
 
-    document.getElementById('one').checked = false;
-    document.getElementById('two').checked = false;
-    document.getElementById('three').checked = false;
+console.log(pokeResults);
 
-//console.log(myPokemonArray);
-//console.log('Captured array: ' + myPokemonArray);
-
+        setInLocalStorage('BAG', pokeResults);
     });
 //*****BUTTON ends here*****
 }    
 //*******FOR LOOP ends here********
-
 
 
 //*****ACCUMULATOR*****
@@ -70,7 +64,6 @@ let accumulator = 0;
 function tallyRounds() {
 
     accumulator = accumulator + 1;
-//console.log(accumulator)
 
     roundsPlayed.textContent = accumulator;
 
@@ -86,26 +79,12 @@ function tallyRounds() {
 //*****ACCUMULATOR ends here*****
 
 
-
-//*****CAPTURED POKEMON function*****
-/*
-export let myPokemonArray = [];
-console.log(myPokemonArray);
-
-function capturedPokemon(array, pokemon) {
-    array.push(pokemon);
-    return array;
-}
-*/
-
 //*****GET RANDOM POKEMON function*****
 function getRandomPokemon(dataArray) {
     const index = Math.floor(Math.random() * dataArray.length);
 
     return dataArray[index];
 }
-
-
 
 // The page will start out by displaying 3 randomly selected, different Pokemon
 //*****START ROUND function*****
@@ -136,14 +115,9 @@ export function startRound() {
     radioButtons[2].value = pokemonThree.id
     images[2].src = pokemonThree.url_image;
 
-    allPokemonArray.push(pokemonOne.id, pokemonTwo.id, pokemonThree.id)
-
-console.log(allPokemonArray);
-//console.log('Encountered array: ' + allPokemonArray);
-
-
 
 ///////////GET LOCAL STORAGE CALL********************************
+/*
 const pokeBag = getFromLocalStorage(BAG) || [];
 
 const itemSeenOne = findById(pokeBag, pokemonOne.id);
@@ -182,20 +156,17 @@ if (itemSeenThree === undefined) {
     itemSeenThree.encountered++;
 }
 
-//capturedPokemon(myPokemonArray, userPick);
-// or myPokemonArray.push(userPick);
 
 ///////////SET LOCAL STORAGE CALL********************************
+
 setInLocalStorage('BAG', pokeBag);
-
-
+*/
 
 
 
     return allPokemonArray;
 }
 //*****END startRound() function*****
-
 
 
 //setFromLocalStorage FUNCTION STARTS HERE******
@@ -230,8 +201,6 @@ function findById(diceArray, diceId) {
 //console.log(findById(data, myPick.id));
 
 
-
-
 startRound();
 
 
@@ -240,6 +209,51 @@ startRound();
 
 /////MISC STUFF BELOW
 
+//capturedPokemon(myPokemonArray, userPick);
+// or myPokemonArray.push(userPick);
+
+
+//    allPokemonArray.push(pokemonOne.id, pokemonTwo.id, pokemonThree.id)
+
+//console.log(allPokemonArray);
+//console.log('Encountered array: ' + allPokemonArray);
+
+
+//*****CAPTURED POKEMON function*****
+/*
+export let myPokemonArray = [];
+console.log(myPokemonArray);
+
+function capturedPokemon(array, pokemon) {
+    array.push(pokemon);
+    return array;
+}
+*/
+
+
+//        const userPick = e.target.value;
+//        console.log('You clicked it!: ' + userPick)
+
+///////////GET LOCAL STORAGE CALL********************************
+/*
+    const itemInBag = findById(myBag, userPick);
+
+    if (itemInBag === undefined) {
+        const newItemInBag = {
+            id: userPick,
+            captured: 1
+        };
+        myBag.push(newItemInBag);
+    } else {
+        itemInBag.captured++;
+    }
+*/
+//    capturedPokemon(myPokemonArray, userPick);
+// or myPokemonArray.push(userPick);
+
+///////////SET LOCAL STORAGE CALL********************************
+
+
 /*
 //*****ENCOUNTERED POKEMON function*****
 function allPokemon(array, option1, option2, option3) {
@@ -247,7 +261,6 @@ function allPokemon(array, option1, option2, option3) {
     return array;
 }
 */
-
 
 
 //for (let i = 0; i < images.length; i++) {
