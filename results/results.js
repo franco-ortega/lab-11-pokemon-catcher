@@ -1,8 +1,48 @@
 import { BAG } from '../constants.js';
 
 const playAgainButton = document.getElementById('play-again-button');
+
 const item = localStorage.getItem(BAG);
 const parsedItem = JSON.parse(item);
+
+
+
+const table = document.querySelector('tbody')
+
+for (let i = 0; i < parsedItem.length; i++) {
+    const myItem = parsedItem[i];
+
+    const tr = document.createElement('tr')
+    const tdPokemon = document.createElement('td')
+    const tdCaptured = document.createElement('td')
+    const tdEncountered = document.createElement('td')
+
+    console.log(tr);
+    console.log(tdPokemon);
+    console.log(tdCaptured);
+    console.log(tdEncountered);
+
+    tdPokemon.textContent = myItem.name;
+    console.log(tdCaptured.textContent = myItem.name);
+
+    tdCaptured.textContent = myItem.captured;
+console.log(tdCaptured.textContent = myItem.captured);
+
+    tdEncountered.textContent = myItem.encountered;
+console.log(tdCaptured.textContent = myItem.encountered);
+
+    tr.append(tdPokemon, tdCaptured, tdEncountered);
+
+    table.appendChild(tr);
+}
+
+
+
+
+
+
+
+
 
 const pokemonCaught = parsedItem.map((bagItem) => {
     return bagItem.captured;
@@ -15,6 +55,17 @@ const pokemonLabels = parsedItem.map((bagItem) => {
 const pokemonEncountered = parsedItem.map((bagItem) => {
     return bagItem.encountered;
 });
+
+
+
+
+
+
+
+
+
+
+
 
 //*****PLAY AGAIN button*****
 playAgainButton.addEventListener('click', () => {
