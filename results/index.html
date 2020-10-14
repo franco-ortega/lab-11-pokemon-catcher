@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
+    <link rel="stylesheet" href="../styles/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>Results Page</title>
 </head>
 <body>
-    RESULTS
+    <header>
+        <h2>
+            Here are the Pokemon that you captured and encountered!!
+        </h2>
+    </header>
+    <main>
+        <span id="results-span"></span>
+        <br>
+        <section class="chart">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </section>
+        <section class="chart">
+            <canvas id="myOtherChart" width="400" height="400"></canvas>
+        </section>
+    </main>
+    <footer>
+        <button id="play-again-button">Play Again</button>
+    </footer>
+    <script type="module" src="results.js"></script>
+
 </body>
 </html>
