@@ -63,12 +63,6 @@ const pokemonImage = parsedItem.map((bagItem) => {
     return bagItem.url_image;
 });
 
-console.log(pokemonImage);
-
-
-
-
-
 
 
 

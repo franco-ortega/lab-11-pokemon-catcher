@@ -1,4 +1,4 @@
-header {
+ header {
     text-align: center;
 }
 
@@ -9,20 +9,18 @@ main {
 table {
     margin: auto;
     padding: 5px;
-    border: 5px solid yellow;
+    border-collapse: collapse;
 }
 
 thead {
     margin: 5px;
     padding: 5px;
     text-align: center;
-    border: 3px solid purple;
 }
 
 tr {
     margin: 5px;
     padding: 5px;
-    border: 1px solid red;
 }
 
 tr:nth-child(odd) {
@@ -30,24 +28,17 @@ tr:nth-child(odd) {
 }
 
 th {
-    margin: 5px;
+    margin: 1px;
     padding: 5px;
-}
-
-tbody {
-    border: 2px solid orange;
 }
 
 td {
     width: 100px;
-    padding: 1px;
+    padding: 0px;
     border: 1px solid black;
 }
 
 .box-td {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 5px;
 }
 
@@ -61,7 +52,8 @@ td {
 }
 
 tfoot {
-    border: 2px solid green;
+    margin: 5px;
+    padding: 5px;
 }
 
 .results-span {
