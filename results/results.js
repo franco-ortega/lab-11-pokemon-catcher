@@ -1,36 +1,20 @@
 import { BAG } from '../constants.js';
 
-const resultsSpan = document.getElementById('results-span');
 const playAgainButton = document.getElementById('play-again-button');
-
-console.log(resultsSpan);
-console.log(playAgainButton);
-
-
 const item = localStorage.getItem(BAG);
 const parsedItem = JSON.parse(item);
-console.log(item);
 
+const pokemonCaught = parsedItem.map((bagItem) => {
+    return bagItem.captured;
+});
 
-const pokemonCaught = [];
-const pokemonLabels = [];
-const pokemonEncountered = [];
+const pokemonLabels = parsedItem.map((bagItem) => {
+    return bagItem.name;
+});
 
-
-//*****FOR LOOP*****
-for (let i = 0; i < parsedItem.length; i++) {
-    const bagItem = parsedItem[i];
-
-    pokemonCaught.push(bagItem.captured);
-    pokemonLabels.push(bagItem.name);    
-    pokemonEncountered.push(bagItem.encountered)
-}
-
-console.log(pokemonCaught);
-console.log(pokemonLabels);
-console.log(pokemonEncountered);
-
-
+const pokemonEncountered = parsedItem.map((bagItem) => {
+    return bagItem.encountered;
+});
 
 //*****PLAY AGAIN button*****
 playAgainButton.addEventListener('click', () => {
@@ -40,8 +24,7 @@ playAgainButton.addEventListener('click', () => {
     window.location = '../index.html';
 })
 
-
-
+//*****CHART 1*****
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
@@ -51,12 +34,19 @@ var myChart = new Chart(ctx, {
             label: '# of Pokemon Captured',
             data: pokemonCaught,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 99, 132, 0.7)',
+                'rgba(54, 162, 235, 0.7)',
+                'rgba(255, 206, 86, 0.7)',
+                'rgba(75, 192, 192, 0.7)',
+                'rgba(153, 102, 255, 0.7)',
+                'rgba(255, 159, 64, 0.7)',
+                'rgba(255, 99, 132, 0.7)',
+                'rgba(54, 162, 235, 0.7)',
+                'rgba(255, 206, 86, 0.7)',
+                'rgba(75, 192, 192, 0.7)',
+                'rgba(153, 102, 255, 0.7)',
+                'rgba(255, 159, 64, 0.7)',
+                'rgba(255, 99, 132, 0.7)'
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -64,9 +54,16 @@ var myChart = new Chart(ctx, {
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)'
             ],
-            borderWidth: 5
+            borderWidth: 3
         }]
     },
     options: {
@@ -80,45 +77,55 @@ var myChart = new Chart(ctx, {
     }
 });
 
-
-
-
-
-
-
-//resultsSpan.textContent = 'Your Results!' + item + pokemonCaught + ' ' + pokemonLabels + ' ' + pokemonEncountered;
-
-
-//import { getFromLocalStorage } from '../app.js';
-
-/*
-function getFromLocalStorage(key) {
-    const item = localStorage.getItem(key);
-    const parsedItem =  JSON.parse(item);
-
-    return parsedItem
-}
-
-const finalResults = getFromLocalStorage(BAG);
-
-console.log(finalResults);
-
-*/
-
-
-/*
-
-const pokemonCaught = [];
-const pokemonLabels = [];
-
-for (let i = 0; i < item.length; i++) {
-    const bagItem = item[i];
-
-    pokemonCaught.push(bagItem.captured);
-    pokemonLabels.push(bagItem.id);    
-}
-
-console.log(pokemonCaught['id']);
-console.log(pokemonLabels);
-
-*/
+//*****CHART 1*****
+var ctx = document.getElementById('myOtherChart').getContext('2d');
+var myOtherChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: pokemonLabels,
+        datasets: [{
+            label: '# of Pokemon Encountered',
+            data: pokemonEncountered,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.7)',
+                'rgba(54, 162, 235, 0.7)',
+                'rgba(255, 206, 86, 0.7)',
+                'rgba(75, 192, 192, 0.7)',
+                'rgba(153, 102, 255, 0.7)',
+                'rgba(255, 159, 64, 0.7)',
+                'rgba(255, 99, 132, 0.7)',
+                'rgba(54, 162, 235, 0.7)',
+                'rgba(255, 206, 86, 0.7)',
+                'rgba(75, 192, 192, 0.7)',
+                'rgba(153, 102, 255, 0.7)',
+                'rgba(255, 159, 64, 0.7)',
+                'rgba(255, 99, 132, 0.7)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 3
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});

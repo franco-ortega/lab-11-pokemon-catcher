@@ -28,6 +28,10 @@ section {
     border: 1px solid black;
 }
 
+.chart {
+    height: auto;
+}
+
 h2 {
     background-color: salmon;
     margin: 10px;
@@ -63,9 +67,19 @@ img:hover {
     border: 2px solid blue;
 }
 
+button {
+    background-color: yellow;
+    height: 40px;
+    width: auto;
+    font-weight: bold;
+    font-size: large;
+    
+}
+
 footer {
     background-color: lightgreen;
     margin: 10px;
     padding: 10px;
+    text-align: center;
     border: 1px solid black;
 }
