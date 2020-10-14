@@ -4,30 +4,36 @@
 
 body {
     background-color: pink;
-    margin: 10px;
+    margin: auto;
+    width: 800px;
 }
 
 header {
-    background-color: lightblue;
+    background-color: lightgreen;
     margin: 10px;
     padding: 10px;
+    border: 1px solid black;
 }
 
 main {
     background-color: lightgreen;
     margin: 10px;
     padding: 10px;
+    border: 1px solid black;
 }
 
 section {
     margin: 10px;
     padding: 10px;
+    border: 1px solid black;
 }
 
 h2 {
     background-color: salmon;
     margin: 10px;
     padding: 10px;
+    text-align: center;
+    border: 1px solid black;
 }
 
 div {
@@ -45,10 +51,6 @@ label > input {
     display: none;
 }
 
-:checked + img {
-    border: 5px solid blue;
-}
-
 img {
     height: 200px;
     width: 200px;
@@ -57,8 +59,13 @@ img {
     padding: 10px;
 }
 
+img:hover {
+    border: 2px solid blue;
+}
+
 footer {
-    background-color: red;
+    background-color: lightgreen;
     margin: 10px;
     padding: 10px;
+    border: 1px solid black;
 }

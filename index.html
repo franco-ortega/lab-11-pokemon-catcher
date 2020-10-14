@@ -5,29 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!--
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/style.css">
--->
 <link rel="stylesheet" href="styles/home.css">
-    <title>Pokecatcher</title>
+    <title>Pokemon Catcher</title>
 </head>
 
-<body>BODY
-    <header>Pokemon Capture Game!
-        <div>THE RULES of the GAME</div>
-        <div>
-            You have caught <span class="rounds-played">0</span> Pokemon so far.
-        </div>
+<body>
+    <header>
+        <h2>
+            Pokemon Catcher Game!
+        </h2>
     </header>
-    <main>MAIN
-        <section>SECTION in MAIN
-
+    <main>
+        <section>
+            <div>
+                Welcome to the Pokemon catcher. Three Pokemon will appear each round. Click on a Pokemon to add it to your bag. At the end of ten rounds, you will see everything that you caught.
+            </div>
+        </section>
+        <section>
             <h2>
-                H2 in SECTION
+                Rounds played: <span class="rounds-played">0</span> 
             </h2>
-
             <div class="image-div">
                 <label>
                     <input type="radio" name="pokemon" value="image-one" class="pokemon-image" id="one">
@@ -42,11 +39,12 @@
                     <img src="" alt="Pokemon 3">
                 </label>
             </div>
-
         </section>
     </main>
     <footer>
-        FOOTER
+        <h2>
+            You can do it!
+        </h2>
     </footer>
 
     <script type="module" src="app.js"></script>

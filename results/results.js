@@ -32,10 +32,6 @@ console.log(pokemonEncountered);
 
 
 
-
-resultsSpan.textContent = 'Your Results!' + item + pokemonCaught + ' ' + pokemonLabels + ' ' + pokemonEncountered;
-
-
 //*****PLAY AGAIN button*****
 playAgainButton.addEventListener('click', () => {
     console.log('Play Again clicked');
@@ -46,15 +42,13 @@ playAgainButton.addEventListener('click', () => {
 
 
 
-
-
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: pokemonLabels,
         datasets: [{
-            label: '# of Votes',
+            label: '# of Pokemon Captured',
             data: pokemonCaught,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -72,7 +66,7 @@ var myChart = new Chart(ctx, {
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 5
         }]
     },
     options: {
@@ -90,6 +84,9 @@ var myChart = new Chart(ctx, {
 
 
 
+
+
+//resultsSpan.textContent = 'Your Results!' + item + pokemonCaught + ' ' + pokemonLabels + ' ' + pokemonEncountered;
 
 
 //import { getFromLocalStorage } from '../app.js';
