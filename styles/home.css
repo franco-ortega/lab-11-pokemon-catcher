@@ -67,15 +67,6 @@ img:hover {
     border: 2px solid blue;
 }
 
-button {
-    background-color: yellow;
-    height: 40px;
-    width: auto;
-    font-weight: bold;
-    font-size: large;
-    
-}
-
 footer {
     background-color: lightgreen;
     margin: 10px;

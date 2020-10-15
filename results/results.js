@@ -1,8 +1,44 @@
 import { BAG } from '../constants.js';
 
 const playAgainButton = document.getElementById('play-again-button');
+const playAgainButtonTwo = document.getElementById('play-again-button-two');
+
 const item = localStorage.getItem(BAG);
 const parsedItem = JSON.parse(item);
+
+const table = document.querySelector('tbody')
+
+for (let i = 0; i < parsedItem.length; i++) {
+    const myItem = parsedItem[i];
+
+    const tr = document.createElement('tr')
+    const tdPokemon = document.createElement('td')
+    const imgPokemon = document.createElement('img');
+    const tdBox = document.createElement('td');
+    const tdCaptured = document.createElement('td')
+    const tdEncountered = document.createElement('td')
+
+    tdPokemon.textContent = myItem.name;
+    tdPokemon.className = 'name-td';
+
+    imgPokemon.src = myItem.url;
+    imgPokemon.alt = `${name}`;
+    imgPokemon.style.height = '60px';
+    imgPokemon.style.width = '60px';
+
+    tdBox.className = 'box-td';
+    tdBox.append(tdPokemon, imgPokemon);
+
+    tdCaptured.textContent = myItem.captured;
+    tdCaptured.className = 'score-td';
+
+    tdEncountered.textContent = myItem.encountered;
+    tdEncountered.className = 'score-td';
+
+    tr.append(tdBox, tdCaptured, tdEncountered)
+
+    table.appendChild(tr);
+}
 
 const pokemonCaught = parsedItem.map((bagItem) => {
     return bagItem.captured;
@@ -16,8 +52,19 @@ const pokemonEncountered = parsedItem.map((bagItem) => {
     return bagItem.encountered;
 });
 
-//*****PLAY AGAIN button*****
+const pokemonImage = parsedItem.map((bagItem) => {
+    return bagItem.url_image;
+});
+
+//*****PLAY AGAIN buttons*****
 playAgainButton.addEventListener('click', () => {
+    console.log('Play Again clicked');
+
+    localStorage.clear();   
+    window.location = '../index.html';
+})
+
+playAgainButtonTwo.addEventListener('click', () => {
     console.log('Play Again clicked');
 
     localStorage.clear();   

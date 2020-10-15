@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="results.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <title>Results Page</title>
 </head>
@@ -12,19 +13,39 @@
         <h2>
             Here are the Pokemon that you captured and encountered!!
         </h2>
+                <button id="play-again-button">Play Again</button>
     </header>
     <main>
-        <span id="results-span"></span>
-        <br>
+        <p class="results-span">
+            RESULTS
+        </p>
+        
+        <table>
+            <thead>
+                <tr id="title-tr">
+                    <th>Pokemon</th>
+                    <th>Captured</th>
+                    <th>Encountered</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+            <tfoot>
+                <td colspan="4" class="congrats">
+                    Congratulations!
+                </td>
+            </tfoot>
+        </table>
         <section class="chart">
-            <canvas id="myChart" width="400" height="400"></canvas>
+            <canvas id="myChart" width="100" height="50"></canvas>
         </section>
         <section class="chart">
-            <canvas id="myOtherChart" width="400" height="400"></canvas>
+            <canvas id="myOtherChart" width="1000" height="500"></canvas>
         </section>
     </main>
     <footer>
-        <button id="play-again-button">Play Again</button>
+        <button id="play-again-button-two">Play Again</button>
     </footer>
     <script type="module" src="results.js"></script>
 
