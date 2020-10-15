@@ -1,6 +1,7 @@
 import { BAG } from '../constants.js';
 
 const playAgainButton = document.getElementById('play-again-button');
+const playAgainButtonTwo = document.getElementById('play-again-button-two');
 
 const item = localStorage.getItem(BAG);
 const parsedItem = JSON.parse(item);
@@ -39,14 +40,6 @@ for (let i = 0; i < parsedItem.length; i++) {
     table.appendChild(tr);
 }
 
-
-
-
-
-
-
-
-
 const pokemonCaught = parsedItem.map((bagItem) => {
     return bagItem.captured;
 });
@@ -63,13 +56,15 @@ const pokemonImage = parsedItem.map((bagItem) => {
     return bagItem.url_image;
 });
 
-
-
-
-
-
-//*****PLAY AGAIN button*****
+//*****PLAY AGAIN buttons*****
 playAgainButton.addEventListener('click', () => {
+    console.log('Play Again clicked');
+
+    localStorage.clear();   
+    window.location = '../index.html';
+})
+
+playAgainButtonTwo.addEventListener('click', () => {
     console.log('Play Again clicked');
 
     localStorage.clear();   

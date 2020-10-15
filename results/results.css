@@ -1,5 +1,13 @@
- header {
+header {
     text-align: center;
+}
+
+button {
+    background-color: yellow;
+    height: 40px;
+    width: auto;
+    font-weight: bold;
+    font-size: large;   
 }
 
 main {

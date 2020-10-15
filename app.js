@@ -67,7 +67,6 @@ function tallyRounds() {
 }
 //*****ACCUMULATOR ends here*****
 
-
 //*****GET RANDOM POKEMON function*****
 function getRandomPokemon(dataArray) {
     const index = Math.floor(Math.random() * dataArray.length);
